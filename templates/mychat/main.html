@@ -1,0 +1,16 @@
+ <!DOCTYPE html>
+{% load staticfiles %}
+<html>
+ <head>
+  <meta charset="UTF-8">
+  <title>Check</title>
+ </head>
+ <body>
+ <ol id = 'all_messages'></ol>
+ <input type = 'text' id = 'user_input'>
+ <input type = 'submit' value = 'Submit' id = 'submit_button'>
+  <script src = '{% static "js/jquery-2.1.4.js" %}'></script>
+  <script src = '{% static "js/ws4redis.js" %}'></script>
+  <script src = '{% static "js/mychat-jquery.js" %}'></script>
+ </body>
+</html>
