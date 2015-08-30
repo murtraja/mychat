@@ -11,7 +11,7 @@ def index(request):
     return render(request, 'mychat/main.html', request_context)
 
 @csrf_exempt
-def postajax(request):
+def broadcast_post(request):
     redis_publisher = RedisPublisher(facility='foobar', broadcast = True)
     msg = request.POST.get('message')
     rip = request.META['REMOTE_ADDR']

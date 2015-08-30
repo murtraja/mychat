@@ -1,5 +1,5 @@
 $(document).ready(function(){
-	alert(WEBSOCKET_URI);
+	alert(BROADCAST_POST);
 
 	var numerateMessage = function(message){
 		$('#all_messages').append('<li> '+message+' </li>');
@@ -25,7 +25,7 @@ $(document).ready(function(){
     // attach this function to an event handler on your site
     function sendMessage() {
         var msg = getMessage();
-        $.post('/chat/postajax/', {
+        $.post(BROADCAST_POST, {
 				message: msg
 			});
         //numerateMessage(msg);

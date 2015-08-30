@@ -11,9 +11,11 @@
  <input type = 'submit' value = 'Submit' id = 'submit_button'>
   <script src = '{% static "js/jquery-2.1.4.js" %}'></script>
   <script src = '{% static "js/ws4redis.js" %}'></script>
-  <script type = 'text/javascript'> var WEBSOCKET_URI = "{{ WEBSOCKET_URI }}"</script>
+  <script type = 'text/javascript'> 
+  var WEBSOCKET_URI = "{{ WEBSOCKET_URI }}";
+  var BROADCAST_POST = "{% url 'broadcast_post' %}";
+  </script>
+  <p>{% url 'broadcast_post' %}</p>
   <script src = '{% static "js/mychat-jquery.js" %}'></script>
-  <p> {% url 'post_ajax'%}
-  <p> some </p>
  </body>
 </html>
