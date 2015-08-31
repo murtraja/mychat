@@ -14,6 +14,7 @@
   <script type = 'text/javascript'> 
   var WEBSOCKET_URI = "{{ WEBSOCKET_URI }}";
   var BROADCAST_POST = "{% url 'broadcast_post' %}";
+  var WS4REDIS_HEARTBEAT = {{ WS4REDIS_HEARTBEAT}};
   </script>
   <p>{% url 'broadcast_post' %}</p>
   <script src = '{% static "js/mychat-jquery.js" %}'></script>

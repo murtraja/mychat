@@ -34,7 +34,15 @@ $(document).ready(function(){
     // receive a message though the websocket from the server
     function receiveMessage(msg) {
         //alert('Message from Websocket: ' + msg);
-        numerateMessage(msg);
+        if(msg == WS4REDIS_HEARTBEAT)
+        {
+        	console.log("heatbeat received!");
+        }
+        else
+        {
+        	numerateMessage(msg);
+        	
+        }
     }
 
 
