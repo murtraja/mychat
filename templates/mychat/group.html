@@ -1,0 +1,28 @@
+ <!DOCTYPE html>
+{% load staticfiles %}
+<html>
+ <head>
+  <meta charset="UTF-8">
+  <title>Check</title>
+ </head>
+ <body>
+ <ol id = 'all_messages'></ol>
+ <p><span id = 'username'>{{ user.username }}</span>, type something </p><br>
+ <select id="group" style="display: inline-block; width: auto;">
+  {% for group in groups %}
+    <option value="{{ group.name }}">{{ group.name }}</option>
+  {% endfor %}
+  </select>
+  <input type = 'text' id = 'user_input'>
+ <input type = 'submit' value = 'Submit' id = 'submit_button'>
+  <script src = '{% static "js/jquery-2.1.4.js" %}'></script>
+  <script src = '{% static "js/ws4redis.js" %}'></script>
+  <script type = 'text/javascript'> 
+  var WEBSOCKET_URI = "{{ WEBSOCKET_URI }}";
+  var GROUP_POST = "{% url 'group_post' %}";
+  var WS4REDIS_HEARTBEAT = {{ WS4REDIS_HEARTBEAT }};
+  </script>
+  <p>{% url 'group_post' %}</p>
+  <script src = '{% static "js/group-jquery.js" %}'></script>
+ </body>
+</html>

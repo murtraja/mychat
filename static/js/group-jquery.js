@@ -1,5 +1,5 @@
 $(document).ready(function(){
-	alert(BROADCAST_POST);
+	alert(GROUP_POST);
 
 	var numerateMessage = function(message){
 		$('#all_messages').append('<li> '+message+' </li>');
@@ -17,7 +17,7 @@ $(document).ready(function(){
 	});
 
 	var ws4redis = WS4Redis({
-        uri: WEBSOCKET_URI+'foobar?subscribe-broadcast&publish-broadcast&echo',
+        uri: WEBSOCKET_URI+'myg?subscribe-group',
         receive_message: receiveMessage,
         heartbeat_msg: WS4REDIS_HEARTBEAT
     });
@@ -25,8 +25,10 @@ $(document).ready(function(){
     // attach this function to an event handler on your site
     function sendMessage() {
         var msg = getMessage();
-        $.post(BROADCAST_POST, {
-				message: msg
+        $.post(GROUP_POST, {
+				message: msg,
+                user: $('#username').html(),
+                group: $('#group').val()
 			});
         //numerateMessage(msg);
     }
